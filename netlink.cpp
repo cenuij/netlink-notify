@@ -52,13 +52,6 @@ using json = nlohmann::json;
          (attr) = mnl_attr_next(attr))
 
 
-/*
- * Missing constant in glibc
- */
-const unsigned int IFF_LOWER_UP = 1 << 16;
-const unsigned int IFF_DORMANT = 1 << 17;
-const unsigned int IFF_ECHO = 1 << 18;
-
 std::string get_iso8601_timestamp()
 {
 	std::ostringstream buffer;
