@@ -410,7 +410,7 @@ class Netlink: public StreamingWorker
 			}();
 
 			char buf[IF_NAMESIZE + 1];
-			ret["data"]["if"] = std::string(if_indextoname(ifa->ifa_index, &buf[0]));
+			ret["data"]["if"] = std::string(if_indextoname(ifa->ifa_index, &buf[0])? buf : "");
 
 			// XXX: create do_addr_parse
 			do_addr_parse(nlh, sizeof(*ifa), tb);
@@ -896,7 +896,7 @@ class Netlink: public StreamingWorker
 			}
 			if (tb[RTA_OIF]) {
 				char buf[IF_NAMESIZE + 1];
-				ret["oif"] = std::string(if_indextoname(mnl_attr_get_u32(tb[RTA_OIF]), &buf[0]));
+				ret["oif"] = std::string(if_indextoname(mnl_attr_get_u32(tb[RTA_OIF]), &buf[0])? buf : "");
 			}
 			if (tb[RTA_FLOW]) {
 				ret["flow"] = mnl_attr_get_u32(tb[RTA_FLOW]);
@@ -978,7 +978,7 @@ class Netlink: public StreamingWorker
 			}
 			if (tb[RTA_OIF]) {
 				char buf[IF_NAMESIZE + 1];
-				ret["oif"] = std::string(if_indextoname(mnl_attr_get_u32(tb[RTA_OIF]), &buf[0]));
+				ret["oif"] = std::string(if_indextoname(mnl_attr_get_u32(tb[RTA_OIF]), &buf[0])? buf : "");
 			}
 			if (tb[RTA_FLOW]) {
 				ret["flow"] = mnl_attr_get_u32(tb[RTA_FLOW]);
