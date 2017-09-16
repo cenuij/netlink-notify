@@ -75,6 +75,8 @@ struct cbdata {
 	const AsyncProgressWorker::ExecutionProgress& progress;
 };
 
+uv_async_t async_;
+
 class Netlink: public StreamingWorker
 {
 	public:
