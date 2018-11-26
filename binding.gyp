@@ -7,6 +7,7 @@
 			"cflags_cc": ["-Wall", "-std=c++11"],
 			"cflags!": [ "-fno-exceptions" ],
 			"cflags_cc!": [ "-fno-exceptions" ],
+			"libraries": ["-lmnl"],
 			"ldflags": ["-lmnl", "-std=c++11"],
 			"include_dirs" : [
 				"<!(node -e \"require('nan')\")", 
